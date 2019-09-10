@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import cosmetics from '@/views/cosmetics'
 import crossborder from './views/crossborder'
-import home from './views/home'
+import home from './views/Home'
 import kids from './views/kids'
 import man from './views/man'
 import upcoming from './views/upcoming'
@@ -44,7 +44,7 @@ const router =new Router({
 
   },
   {
-    path:'/',
+    path:'/home',
     component: home
 
   },
@@ -71,9 +71,16 @@ const router =new Router({
   {
     path:'/women',
     component: women
-
   },
-  
+  {
+    path:'/',
+    redirect:'/home'
+  },
+  {
+    path:'*',
+    redirect:'/home'
+  }
+
   ]
 })
 
