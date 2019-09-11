@@ -46,6 +46,7 @@ export default {
         left: 0;
         top:0;
         color:white;
+        z-index: 999;
     }
     .active{
         border-bottom:3px solid white;
