@@ -9,6 +9,7 @@ import upcoming from './views/upcoming'
 import lifestyle from './views/lifestyle'
 import women from './views/women'
 import shoppingcart from './views/shoppingcart'
+import Edit from './views/shoppingcart/edit'
 import login from './views/login'
 
 Vue.use(Router)
@@ -27,6 +28,10 @@ const router =new Router({
     path:'/shoppingcart',
     component:shoppingcart
 
+  },
+  {
+    path:'/shoppingcart/edit',
+    component:Edit
   },
   {
     path:'/login',
