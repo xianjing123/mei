@@ -29,8 +29,19 @@
             <div class="checkbox">
                 <label @change="checkBox"><input type="checkbox" v-model="isAllChecked">全选</label>
             </div>
-            <div class="total">总价：<span>￥{{total()}}</span></div>
-            <div :class="checkgroup.length?'button-red':''" class="button"><slot name="button"></slot>{{endNum()}}</div>
+            <slot name="show">
+                <div class="total">总价：<span>￥{{total()}}</span></div>
+            </slot>
+            <slot name="setItem">
+                <div :class="checkgroup.length?'button-red':''" class="button" @click="deleteShop">
+                    去结算{{endNum()}}
+                </div>
+            </slot>
+            <slot name="delete">
+                <div :class="checkgroup.length?'button-red':''" class="button" @click="deleteShop">
+                    删除{{endNum()}}
+                </div>
+            </slot>
         </footer>
     </div>
 </template>
@@ -68,14 +79,17 @@ export default {
                     count:1,
                     price:900,
                     img:'https://cdn13.mei.com/product/VY4-206-00106/VY4-206-00106a.jpg@182w_242h_2e_65q'
-                },
+                }
             ]
         }
     },
     mounted () {
-        this.$emit('dataL',this.datalist)
+        this.$emit('dataL',this.datalist.length?true:false)
     },
     methods: {
+        goShopping () {
+            this.$router.push('/home')
+        },
         checkBoxGroup () {
             if(this.checkgroup.length === this.datalist.length){
                 this.isAllChecked = true
@@ -90,8 +104,16 @@ export default {
                 this.checkgroup = []
             }
         },
-        remove (data) {
-            console.log(data)
+        deleteShop () {
+            for(let i = this.datalist.length-1; i>=0; i--){
+                for(let j = 0; j<this.checkgroup.length;j++){
+                    if(this.datalist[i]===this.checkgroup[j]){
+                        console.log(this.datalist[i])
+                        this.datalist.splice(i,1)
+                    }
+                }
+            }
+            this.checkgroup = []
         },
         total () {
             var sum = 0;

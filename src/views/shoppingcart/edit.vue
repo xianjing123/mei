@@ -1,10 +1,11 @@
 <template>
     <div class="shop">
-        <shopTabbar @events="Events($event)">
+        <shopTabbar>
             <div @click="complete">完成</div>
         </shopTabbar>
         <shopData>
-            <span slot="button">删除</span>
+            <span slot="show" style="display:none"></span>
+            <span slot="setItem" style="display:none"></span>
         </shopData>
     </div>
 </template>

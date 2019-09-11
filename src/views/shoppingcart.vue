@@ -1,7 +1,7 @@
 <template>
     <div class="shop">
-        <shopTabbar @events="Events($event)">
-            <div v-if="datalist.length" @click="edit">编辑</div>
+        <shopTabbar>
+            <div v-if="ortrue" @click="edit">编辑</div>
             <div @click="more()" v-else><i class="iconfont icon-gengduo"></i></div>
         </shopTabbar>
         <div class="shopping-menu" ref="menu">
@@ -15,7 +15,7 @@
                 <span class="tips-text">{{tips}}</span>
                 <span><i>1</i>/1</span>
             </div>
-            <span slot="button">去结算</span>
+            <span slot="delete" style="display:none"></span>
         </shopData>
     </div>
 </template>
@@ -28,7 +28,7 @@ export default {
         return {
             isShow: true,
             tips: '[全新商品]满688免运费',
-            datalist: []
+            ortrue: false
         }
     },
     methods: {
@@ -49,7 +49,7 @@ export default {
             }
         },
         manyData(data){
-            this.datalist = data
+            this.ortrue = data
         },
         edit () {
             this.$router.push('/shoppingcart/edit')
