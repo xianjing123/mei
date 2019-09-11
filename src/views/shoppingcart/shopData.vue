@@ -33,7 +33,7 @@
                 <div class="total">总价：<span>￥{{total()}}</span></div>
             </slot>
             <slot name="setItem">
-                <div :class="checkgroup.length?'button-red':''" class="button" @click="deleteShop">
+                <div :class="checkgroup.length?'button-red':''" class="button" @click="goShopping">
                     去结算{{endNum()}}
                 </div>
             </slot>
@@ -47,44 +47,51 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     data () {
         return {
             isAllChecked: false,
             checkgroup: [],
             datalist: [
-                {
-                    id:1,
-                    name:'衣服',
-                    color:'蓝色',
-                    brand:'3DAVID NAMAN',
-                    count:1,
-                    price:399,
-                    img:'https://cdn13.mei.com/product/DZG-209-00899/2ea86d89047e5ba2f142197e7461d22e.jpg@182w_242h_2e_65q'
-                },
-                {
-                    id:2,
-                    name:'裤子',
-                    color:'蓝色',
-                    brand:'3DAVID NAMAN',
-                    count:1,
-                    price:500,
-                    img:'https://cdn14.mei.com/product/VY4-204-00129/273985c7918284ee3b66a67822adc38c.jpg@182w_242h_2e_65q'
-                },
-                {
-                    id:3,
-                    name:'衣服',
-                    color:'白色',
-                    brand:'3DAVID NAMAN',
-                    count:1,
-                    price:900,
-                    img:'https://cdn13.mei.com/product/VY4-206-00106/VY4-206-00106a.jpg@182w_242h_2e_65q'
-                }
+                // {
+                //     id:1,
+                    // name:'衣服',
+                    // color:'蓝色',
+                    // brand:'3DAVID NAMAN',
+                    // count:1,
+                    // price:399,
+                    // img:'https://cdn13.mei.com/product/DZG-209-00899/2ea86d89047e5ba2f142197e7461d22e.jpg@182w_242h_2e_65q'
+                // },
+                // {
+                //     id:2,
+                    // name:'裤子',
+                    // color:'蓝色',
+                    // brand:'3DAVID NAMAN',
+                    // count:1,
+                    // price:500,
+                    // img:'https://cdn14.mei.com/product/VY4-204-00129/273985c7918284ee3b66a67822adc38c.jpg@182w_242h_2e_65q'
+                // },
+                // {
+                //     id:3,
+                    // name:'衣服',
+                    // color:'白色',
+                    // brand:'3DAVID NAMAN',
+                    // count:1,
+                    // price:900,
+                    // img:'https://cdn13.mei.com/product/VY4-206-00106/VY4-206-00106a.jpg@182w_242h_2e_65q'
+                // }
             ]
         }
     },
     mounted () {
         this.$emit('dataL',this.datalist.length?true:false)
+        axios({
+            url:"/users"
+        }).then(res=>{
+            this.datalist = res.data.list
+            this.$emit('dataL',this.datalist.length?true:false)
+        })
     },
     methods: {
         goShopping () {
@@ -108,8 +115,19 @@ export default {
             for(let i = this.datalist.length-1; i>=0; i--){
                 for(let j = 0; j<this.checkgroup.length;j++){
                     if(this.datalist[i]===this.checkgroup[j]){
-                        console.log(this.datalist[i])
-                        this.datalist.splice(i,1)
+                        axios({
+                            method:'delete',
+                            url:'/users',
+                            data:{
+                                comm:this.datalist[i]
+                            }
+                        }).then(res=>{
+                            if(res.data.ok){
+                                this.datalist.splice(i,1)
+                            }else{
+                                return;
+                            }
+                        })
                     }
                 }
             }

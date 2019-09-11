@@ -11,9 +11,11 @@
             <router-link tag="p" to="/login">个人中心</router-link>
         </div>
         <shopData @dataL="manyData($event)">
-            <div class="tips" slot="tips">
-                <span class="tips-text">{{tips}}</span>
-                <span><i>1</i>/1</span>
+            <div slot="tips">
+                <div class="tips">
+                    <span class="tips-text">{{tips}}</span>
+                    <span><i>1</i>/1</span>
+                </div>
             </div>
             <span slot="delete" style="display:none"></span>
         </shopData>
