@@ -43,17 +43,32 @@ export default {
     }
     nav{
         position: fixed;
+        z-index:1000;
         left: 0;
         top:0;
         color:white;
     }
     .active{
-        border-bottom:3px solid white;
+        position: relative;
+        &::after
+        {
+            width:0.2rem;
+            height:0.02rem;
+            background-color:#fff;
+            display:block;
+            position:absolute;
+            bottom:0.05rem;
+            content:"";
+            left:50%;
+            transform: translateX(-50%)
+
+        }
+        
     }
     .head{
         display: flex;
         justify-content: space-between;
-        padding-top: .07rem;
+        margin-top: .07rem;
         margin-bottom: .02rem;
         box-sizing: border-box;
         width:3.75rem;
