@@ -7,7 +7,7 @@ import kids from './views/kids'
 import man from './views/man'
 import upcoming from './views/upcoming'
 import lifestyle from './views/lifestyle'
-import women from './views/women'
+import woman from './views/woman'
 import shoppingcart from './views/shoppingcart'
 import login from './views/login'
 
@@ -69,8 +69,8 @@ const router =new Router({
 
   },
   {
-    path:'/women',
-    component: women
+    path:'/woman',
+    component: woman
   },
   {
     path:'/',

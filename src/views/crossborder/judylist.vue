@@ -1,51 +1,25 @@
-
 <template>
     <div>
-       
-        <img src="/image/bg.jpg" class="banner">
           <ul class="newEvent" v-for="data in datalist" :key="data.categoryId">
-        <li >
+          <li >
             <img :src="data.imageUrl" />
             <div class="title ">
+                <div class="haiwai">海外直发</div>
                 <p>{{data.englishName}}</p>
                 <span>{{data.chineseName}}</span>
                 <span>{{data.discountText}}</span>
             </div>
-            
-        </li>
-    </ul>
+         </li>
+      </ul>
     </div>
 </template>
 <script>
-import axios from 'axios'
-
 export default {
-    data(){
-        return{
-           datalist:[],
-        }
-    },
-
-    components:{
-    
-    },
-    
-    mounted(){
-        axios('http://www.mei.com/appapi/silo/eventForH5?categoryId=women&pageIndex=1&timestamp=1568194860785&summary=48c471be94d24499da8ca1690912ffb6&platform_code=H5')
-        .then(res=>{
-            this.datalist = res.data.eventList
-            console.log(this.datalist)
-        })
-    }
+    props:["datalist"],
 }
 </script>
-<style lang="scss" scoped>
 
-.banner{
-    width: 3.75rem;
-    height: 4.5rem;
-    margin-bottom: .15rem;
-}
+<style lang="scss" scoped>
 .newEvent{
     width: 3.45rem;
     margin: 0 auto;
@@ -63,6 +37,14 @@ export default {
             color: white;
             left: .1rem;
             bottom: .1rem;
+            .haiwai{
+                font-size: .12rem;
+                color: black;
+                line-height: .14rem;
+                background-color: beige;
+                width: .51rem;
+                height: .14rem;
+            }
             p{
                 font-size: .16rem;
                 text-transform:Uppercase ;
