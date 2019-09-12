@@ -10,6 +10,7 @@ import lifestyle from './views/lifestyle'
 import women from './views/women'
 import shoppingcart from './views/shoppingcart'
 import login from './views/login'
+import details from './views/details'
 
 Vue.use(Router)
 
@@ -80,6 +81,7 @@ const router =new Router({
     path:'*',
     redirect:'/home'
   }
+ 
 
   ]
 })
