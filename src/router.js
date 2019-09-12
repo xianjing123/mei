@@ -89,6 +89,15 @@ const router =new Router({
     component:bannerdetail
   },
   {
+    path:'/detail/:id',
+    name:'detail',
+    component: Detail
+  },
+  {
+    path:'/bannerdetail/:id',
+    component:bannerdetail
+  },
+  {
     path:'/',
     redirect:'/home'
   },

@@ -12,9 +12,9 @@
 
 <script>
 import axios from 'axios'
-import Homeswiper from '@/Home/Homeswiper'
-import Homenewpin from '@/Home/Homenewpin'
-import newEvent from '@/Home/newEvent'
+import Homeswiper from './Home/Homeswiper'
+import Homenewpin from './Home/Homenewpin'
+import newEvent from './Home/newEvent'
 import footerbox from '@/components/footerbox'
 export default {
     
