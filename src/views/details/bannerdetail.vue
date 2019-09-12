@@ -17,13 +17,16 @@
       <div class="brank-text">
        
         <p>{{brandObj.brandDetail.brandStoryText}}</p>
+<!-- <name></name> -->
         <span>更多</span>
       </div>
     </div>
   </div>
 </template>
 <script>
+// import Vue from "vue"
 import axios from "axios";
+// Vue.component('name','<h1>hello vue</h1>')
 export default {
   data() {
     return {
@@ -34,9 +37,7 @@ export default {
     axios(
       "http://www.mei.com/appapi/brand/product/hotNew/v3?logoId=3616200100000001326"
     ).then(res => {
-      console.log(res.data.body);
       this.brandObj = res.data.body;
-      // console.log(this.brandDetail)
     });
   }
 };
