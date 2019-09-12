@@ -1,7 +1,8 @@
 <template>
     <div class="shop">
         <shopTabbar>
-            <div @click="complete">完成</div>
+            <span slot="content">购物车</span>
+            <div @click="complete" slot="result">完成</div>
         </shopTabbar>
         <shopData>
             <span slot="show" style="display:none"></span>

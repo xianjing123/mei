@@ -6,7 +6,7 @@
 
       infinite-scroll-disabled="loading"
       infinite-scroll-immediate-check="false">
-            <div class="mainContent" v-for="data in datalist" :key="data.categoryId">
+            <div class="mainContent" v-for="data in datalist" :key="data.categoryId" @click="toDetail(data)">
             <img :src="Image(data.imageUrl)" alt="">
             <div class="particulars">
             <p>{{data.englishName}}</p>
@@ -64,8 +64,11 @@ export default {
                 this.loading=false
             })
             // console.log()
-
             
+        },
+        toDetail (data) {
+            // this.$router.push({ name: 'detail', params: { Data: data, }})
+            this.$router.push(`/detail/productlist?categoryId=${data.categoryId}&key=&sort=&timestamp=${Date.now()}`)
         }
         
     },

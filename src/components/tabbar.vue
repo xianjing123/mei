@@ -25,7 +25,7 @@ export default {
     },
     methods: {
         Scroll () {
-            if(document.documentElement.scrollTop > 0){
+            if(document.documentElement.scrollTop || document.body.scrollTop > 0){
                 this.$refs.router.style.background = 'white'
                 this.$refs.router.style.color = 'black'
             }else{
@@ -33,6 +33,9 @@ export default {
                 this.$refs.router.style.color = 'white'
             }
         }
+    },
+    destroyed () {
+        window.onscroll = null
     }
 }
 </script>

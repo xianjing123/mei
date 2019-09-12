@@ -11,6 +11,7 @@ import women from './views/women'
 import shoppingcart from './views/shoppingcart'
 import Edit from './views/shoppingcart/edit'
 import login from './views/login'
+import Detail from './views/details/detail'
 
 Vue.use(Router)
 
@@ -78,6 +79,11 @@ const router =new Router({
     component: women
   },
   {
+    path:'/detail/:id',
+    name:'detail',
+    component: Detail
+  },
+  {
     path:'/',
     redirect:'/home'
   },
@@ -85,6 +91,7 @@ const router =new Router({
     path:'*',
     redirect:'/home'
   }
+ 
 
   ]
 })

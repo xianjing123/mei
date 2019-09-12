@@ -1,18 +1,13 @@
 <template>
     <div class="nav">
         <div @click="historyGo"><i class="iconfont icon-sdf"></i></div>
-        <p>购物车</p>
-        <slot></slot>
+        <p><slot name="content"></slot></p>
+        <slot name="result"></slot>
     </div>
 </template>
 
 <script>
 export default {
-    data () {
-        return {
-
-        }
-    },
     methods: {
         historyGo () {
             this.$router.go(-1)

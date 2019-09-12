@@ -1,9 +1,9 @@
 <template>
     <div>
         <ul>
-            <router-link tag="li" v-for="(data,index) in datalist" :key="index" to="/">
+            <li v-for="(data,index) in datalist" :key="index" @click="toDetail(data)">
             <img :src="data.categoryImgStr" alt="">
-            </router-link>
+            </li>
         </ul>
     </div>
 </template>
@@ -13,6 +13,12 @@ export default {
     data(){
         return{
             datalist:[]
+        }
+    },
+    methods: {
+        toDetail (data) {
+            // this.$router.push({ name: 'detail', params: { Data: data, }})
+            this.$router.push(`/detail/id?categoryId=${data.categoryOneId}&siloId=${data.siloId}&thirdCategories=${data.categoryOneName}&key=&sort=&timestamp=${Date.now()}`)
         }
     },
     mounted(){
