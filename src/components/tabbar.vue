@@ -33,6 +33,9 @@ export default {
                 this.$refs.router.style.color = 'white'
             }
         }
+    },
+    destroyed () {
+        window.onscroll = null
     }
 }
 </script>
