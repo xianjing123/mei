@@ -3,7 +3,6 @@
               <div class="swiper-wrapper">
                 <slot></slot>
               </div>
-              <!-- 如果需要分页器 -->
               <div class="swiper-pagination"></div>
   </div>
 </template>
@@ -13,9 +12,7 @@ import Swiper from 'swiper' // 模块化引入swiper
 import 'swiper/dist/css/swiper.css' // 模块化引入css
 export default {
   mounted () {
-    // console.log(this.options);
     var { loop, pagination, slideperview, freeMode } = this.options
-    /* eslint-disable no-new */
     new Swiper('.' + this.myname, {
      // slidesPerView: slideperview,
       //spaceBetween: 40,

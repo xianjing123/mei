@@ -56,7 +56,8 @@ export default {
 <style lang="scss" scoped>
     .shop{
         background:#f1f1f1;
-        min-height:6.67rem;
+        min-height:6.17rem;
+        margin-bottom:.5rem;
     }
     .tips{
         font-size:.14rem;
