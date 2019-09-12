@@ -26,7 +26,7 @@ export default {
         }
     },
     mounted(){
-        console.log('aaa')
+        // console.log('aaa')
         axios({
             url:"http://www.mei.com/appapi/home/mktBannerApp/v3?silo_id=2013000100000000003&platform_code=PLATEFORM_H5"
         }).then(res=>{
