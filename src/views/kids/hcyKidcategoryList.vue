@@ -23,9 +23,7 @@ export default {
     },
     mounted(){
         axios("http://www.mei.com/appapi/cms/cmsDetail/v3?silo=2013000100000000005&ids=2120000100000000146&timestamp=1568117291743&summary=e0ee0b1b31e0c1518dcf9227038c380c&platform_code=H5").then(res=>{
-            // console.log(res.data.resultList[0].data)
             this.datalist=res.data.resultList[0].data
-            // console.log(res.data.resultList[0].data[0].categoryOneId)
         })
     }
 }
