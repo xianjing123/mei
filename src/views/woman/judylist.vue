@@ -1,6 +1,6 @@
 <template>
     <div>
-        <ul class="newEvent" v-for="data in datalist" :key="data.categoryId">
+        <ul class="newEvent" v-for="data in datalist" :key="data.categoryId" v-detail="data">
             <li >
                 <img :src="data.imageUrl" />
                 <div class="title ">
@@ -15,9 +15,9 @@
 </template>
 
 <script>
+import '@/js/toDetail'
 export default {
-    props:["datalist"],
-     required: true
+    props:["datalist"]
 }
 </script>
 <style lang="scss" scoped>

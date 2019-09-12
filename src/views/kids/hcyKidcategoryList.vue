@@ -17,11 +17,7 @@ export default {
     },
     methods: {
         toDetail (data) {
-            
-            // this.$router.push({ name: 'detail', params: { Data: data, }})
             this.$router.push(`/detail/id?categoryId=${data.categoryOneId}&siloId=${data.siloId}&thirdCategories=${data.categroyTwoName}&key=&sort=&timestamp=${Date.now()}`)
-
-            
         }
     },
     mounted(){
@@ -35,7 +31,6 @@ export default {
  div{
      width:3.75rem;
      padding:0.05rem;
-    //  background-color:hotpink;
      ul{
 
      display:flex;

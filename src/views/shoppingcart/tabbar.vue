@@ -37,6 +37,10 @@ export default {
         p{
             flex:1;
             font-size:.18rem;
+            height:100%;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            white-space: nowrap;
         }
     }
 </style>

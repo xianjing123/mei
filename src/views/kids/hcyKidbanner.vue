@@ -18,46 +18,29 @@
         </div>
     </swiper>
     </div>
-    
-   
-
- 
     </div>
-   
 </template>
-
-
 <script>
 
 import swiper from '@/components/Swiper'
 import axios from "axios"
 
 export default {
-    
     data(){
         return{
-            
             datalist:[],
-           
-           
-            
         }
     },
-
     components:{
         swiper,
-       
     },
     mounted(){
         axios("http://www.mei.com/appapi/home/mktBannerApp/v3?silo_id=2013000100000000005&platform_code=PLATEFORM_H5").then(res=>{
     this.datalist=res.data.banners         
         })
     }
-    
 }
 </script>
-
-
 <style lang="scss" scoped>
     .banner{
         width:100%;

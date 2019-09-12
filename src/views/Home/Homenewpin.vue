@@ -20,12 +20,7 @@
 
 <script>
 export default {
-    props:["Homenewpin"],
-     data(){
-       return{
-          
-       }
-   }, 
+    props:["Homenewpin"]
 }
 </script>
 

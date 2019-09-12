@@ -75,9 +75,9 @@ export default {
         },
         getUrl (key="",sort="") {
             if(this.$route.params.id==='id'){
-                return this.detailTotal(`http://www.mei.com/appapi/secondcategory/search/v3?brandNames=&chineseCodes=&pageIndex=1&categoryId=${this.fromData.categoryId}&siloId=${this.fromData.siloId}&thirdCategories=${this.fromData.thirdCategories}&key=${key}&sort=${sort}&timestamp=${this.fromData.timestamp}`)
+                this.detailTotal(`http://www.mei.com/appapi/secondcategory/search/v3?brandNames=&chineseCodes=&pageIndex=1&categoryId=${this.fromData.categoryId}&siloId=${this.fromData.siloId}&thirdCategories=${this.fromData.thirdCategories}&key=${key}&sort=${sort}&timestamp=${this.fromData.timestamp}`)
             }else if(this.$route.params.id==='productlist'){
-                return this.detailTotal(`http://www.mei.com/appapi/event/product/v3?pageIndex=1&categoryId=${this.fromData.categoryId}&key=${key}&sort=${sort}&timestamp=${this.fromData.timestamp}`)
+                this.detailTotal(`http://www.mei.com/appapi/event/product/v3?pageIndex=1&categoryId=${this.fromData.categoryId}&key=${key}&sort=${sort}&timestamp=${this.fromData.timestamp}`)
             }
         },
         buyShop (item) {

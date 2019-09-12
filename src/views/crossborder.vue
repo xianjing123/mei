@@ -28,12 +28,10 @@ export default {
          axios('http://www.mei.com/appapi/home/mktBannerApp/v3?silo_id=2013000100000000011&platform_code=PLATEFORM_H5')
         .then(res=>{
             this.bannerlist = res.data.banners
-            console.log(this.bannerlist)
         })
           axios('http://www.mei.com/appapi/silo/eventForH5?categoryId=crossborder&pageIndex=1&timestamp=1568198845745&summary=b7162136506916b32e18c12abc503327&platform_code=H5')
         .then(res=>{
             this. datalist = res.data.eventList
-            //console.log(this. datalist)
         })
     }
 }

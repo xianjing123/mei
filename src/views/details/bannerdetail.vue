@@ -34,9 +34,7 @@ export default {
     axios(
       "http://www.mei.com/appapi/brand/product/hotNew/v3?logoId=3616200100000001326"
     ).then(res => {
-      console.log(res.data.body);
       this.brandObj = res.data.body;
-      // console.log(this.brandDetail)
     });
   }
 };

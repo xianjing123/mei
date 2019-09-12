@@ -28,7 +28,6 @@ export default {
         axios('http://www.mei.com/appapi/silo/eventForH5?categoryId=women&pageIndex=1&timestamp=1568194860785&summary=48c471be94d24499da8ca1690912ffb6&platform_code=H5')
         .then(res=>{
             this.datalist = res.data.eventList
-            console.log(this.datalist)
         })
     }
 }
