@@ -9,7 +9,10 @@ import upcoming from './views/upcoming'
 import lifestyle from './views/lifestyle'
 import woman from './views/woman'
 import shoppingcart from './views/shoppingcart'
+import Edit from './views/shoppingcart/edit'
 import login from './views/login'
+import Detail from './views/details/detail'
+import bannerdetail from './views/details/bannerdetail'
 
 Vue.use(Router)
 
@@ -27,6 +30,10 @@ const router =new Router({
     path:'/shoppingcart',
     component:shoppingcart
 
+  },
+  {
+    path:'/shoppingcart/edit',
+    component:Edit
   },
   {
     path:'/login',
@@ -73,6 +80,15 @@ const router =new Router({
     component: woman
   },
   {
+    path:'/detail/:id',
+    name:'detail',
+    component: Detail
+  },
+  {
+    path:'/bannerdetail/:id',
+    component:bannerdetail
+  },
+  {
     path:'/',
     redirect:'/home'
   },
@@ -80,6 +96,7 @@ const router =new Router({
     path:'*',
     redirect:'/home'
   }
+ 
 
   ]
 })

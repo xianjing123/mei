@@ -13,7 +13,7 @@ import Swiper from 'swiper' // 模块化引入swiper
 import 'swiper/dist/css/swiper.css' // 模块化引入css
 export default {
   mounted () {
-    // console.log(this.options);
+
     var { loop, pagination, slideperview, freeMode } = this.options
     /* eslint-disable no-new */
     new Swiper('.' + this.myname, {
@@ -25,7 +25,7 @@ export default {
       pagination: pagination ? {
         el: '.swiper-pagination'
       } : {},
-        loop: loop, // 循环模式选项
+        loop: loop // 循环模式选项
     })
   },
   props: ['myname', 'options']

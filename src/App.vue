@@ -38,7 +38,7 @@ export default {
     }
     body{
       font-size:16px;
-      background:#f1f1f1;
+      /* background:#f1f1f1; */
     }
     .bounce-enter-active {
       animation: bounce-in 0.3s;

@@ -62,7 +62,7 @@ export default {
     },
     methods: {
         Scroll () {
-            if(document.documentElement.scrollTop > 0){
+            if(document.documentElement.scrollTop || document.body.scrollTop > 0){
                 this.$refs.router.style.background = 'white'
                 this.$refs.router.style.color = 'black'
             }else{
@@ -78,6 +78,9 @@ export default {
            this.$refs.mask.style.display ='none'
            this.$refs.router.style.display ='block'
         }
+    },
+    destroyed () {
+        window.onscroll = null
     }
 }
 </script>
@@ -89,18 +92,33 @@ export default {
     }
     nav{
         position: fixed;
+        z-index:1000;
         left: 0;
         top:0;
         color:white;
         z-index: 999;
     }
     .active{
-        border-bottom:3px solid white;
+        position: relative;
+        &::after
+        {
+            width:0.2rem;
+            height:0.02rem;
+            background-color:#fff;
+            display:block;
+            position:absolute;
+            bottom:0.05rem;
+            content:"";
+            left:50%;
+            transform: translateX(-50%)
+
+        }
+        
     }
     .head{
         display: flex;
         justify-content: space-between;
-        padding-top: .07rem;
+        margin-top: .07rem;
         margin-bottom: .02rem;
         box-sizing: border-box;
         width:100%;
