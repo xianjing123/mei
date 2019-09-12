@@ -17,8 +17,11 @@ export default {
     },
     methods: {
         toDetail (data) {
+            
             // this.$router.push({ name: 'detail', params: { Data: data, }})
             this.$router.push(`/detail/id?categoryId=${data.categoryOneId}&siloId=${data.siloId}&thirdCategories=${data.categroyTwoName}&key=&sort=&timestamp=${Date.now()}`)
+
+            
         }
     },
     mounted(){

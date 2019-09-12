@@ -6,7 +6,7 @@
     freeMode:false,
     pagination:true,
     slideperview:1}" v-if="datalist.length">
-        <div class="swiper-slide ban1" v-for="data in datalist" :key="data.id">
+        <div class="swiper-slide ban1" v-for="data in datalist" :key="data.id" >
             
             <img :src="data.main_image"/>
              <div class="title" >
