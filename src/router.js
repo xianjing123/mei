@@ -14,6 +14,7 @@ import login from './views/login'
 import Detail from './views/details/detail'
 import bannerdetail from './views/details/bannerdetail'
 
+
 Vue.use(Router)
 
 
