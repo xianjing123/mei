@@ -19,13 +19,11 @@ export default {
     return {
       designation: "",
       isshow:false,
-      // imgHeight:0
     };
   },
   methods:{
       haha(){
-        // console.log(this.imgHeight)
-        // console.log(document.body.scrollTop)
+       
         if(document.documentElement.scrollTop > this.imgHeight){
             this.isshow=true
         }else{
@@ -47,7 +45,6 @@ export default {
       `http://www.mei.com/appapi/brand/product/hotNew/v3?logoId=${this.$route.params.id}`
     ).then(res => {
       this.designation = res.data.body.brandDetail.brandName.toUpperCase()
-      // console.log('字母',res.data.body.brandDetail.brandName)
     });
   
     

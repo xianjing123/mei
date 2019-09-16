@@ -41,10 +41,8 @@ export default {
     axios(
       `http://www.mei.com/appapi/brand/product/secCategoryProduct/v3?logoId=${this.$route.params.id}&pageIndex=1`
     ).then(res => {
-      console.log(res.data.body);
       this.dataobj = res.data.body.categories[0];
       this.datalist = res.data.body.categoryProducts;
-      console.log(res.data.body.categoryProducts);
     });
   }
 };

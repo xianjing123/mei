@@ -23,7 +23,11 @@ export default {
     shopnav
   },
   mounted() {
-    console.log(this.$refs);
-  },
+    axios(
+      "http://www.mei.com/appapi/brand/product/hotNew/v3?logoId=3616200100000001326"
+    ).then(res => {
+      this.brandObj = res.data.body;
+    });
+  }
 };
 </script>

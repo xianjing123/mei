@@ -27,7 +27,6 @@ export default {
     },
         mounted(){
             axios(`http://www.mei.com/appapi/brand/product/hotNew/v3?logoId=${this.$route.params.id}`).then(res=>{
-                console.log(res.data.body.newProductTop10)
                 this.datalist=res.data.body.newProductTop10
             })
         }

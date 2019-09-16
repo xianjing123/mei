@@ -25,9 +25,7 @@
   </div>
 </template>
 <script>
-// import Vue from "vue"
 import axios from "axios";
-// Vue.component('name','<h1>hello vue</h1>')
 export default {
   data() {
     return {
@@ -41,18 +39,14 @@ export default {
     
     
     this.$store.commit("tabbarFalse")
-    console.log()
+    
    var ad=this.$route.params.id
     axios(
       `http://www.mei.com/appapi/brand/product/hotNew/v3?logoId=${ad}`
     ).then(res => {
       this.brandObj = res.data.body;
-    //   console.log(res.data.body.brandDetail.brandPageImage);
-    //   console.log(this.brandObj[0]);
     this.$nextTick(()=>{
      this.$store.state.imgHeight=this.$refs.imgWidth.offsetHeight
-    //  console.log(this.$refs.imgWidth.offsetHeight)
-    //  console.log(this.$store.state.imgHeight)
     })
     });
   },
@@ -60,8 +54,6 @@ export default {
   methods: {
     showHeight() {
      this.isshow=!this.isshow
-     
-    //  this.text="收起"
     }
   },
  
@@ -74,7 +66,6 @@ export default {
 .brand-info {
   width: 100%;
   height: 6.11rem;
-  // background-color: hotpink;
   .brand-img {
     width: 100%;
     height: 2.25rem;
@@ -119,20 +110,19 @@ export default {
     text-align: center;
     width: 100%;
     
-    // background: green;
+   
     
     .brank-text-content {
       position: relative;
       
       width: 3.25rem;
-      // overflow: hidden;
-      // position: relative;
+      
       display: block;
       margin: 0 auto;
-      // background-color: lightgreen;
+     
       p {
         width: 100%;
-        // height:auto;
+        
         overflow: hidden;
         height: 1.24rem;
         font-size: 0.14rem;
@@ -140,7 +130,6 @@ export default {
         color: #ccc;
       }
        .show{
-      // height:2.43rem
       overflow: visible;
       height:auto;
     }
@@ -155,17 +144,10 @@ export default {
         cursor: pointer;
       
         background-color:#fff;
-        // position: absolute;
-        // left: 0;
-        // bottom: 0;
-        // z-index: 1;
+       
       }
     }
    
   }
 }
 </style>
-http://www.mei.com/appapi/brand/product/hotNew/v3?logoId=3616200100000001248
-http://www.mei.com/appapi/brand/product/hotNew/v3?logoId=3616200100000001248
-http://www.mei.com/appapi/brand/product/hotNew/v3?logoId=3616200100000001248
-http://www.mei.com/appapi/brand/product/hotNew/v3?logoId=3616200100000001567

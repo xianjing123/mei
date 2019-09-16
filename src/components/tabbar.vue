@@ -2,12 +2,16 @@
   <div class="box">
     <nav ref="router">
         <div class="head">
-         <router-link to= "/login" tag="div" class="login">登录</router-link>
+         <router-link to= "/login" tag="div" class="login">
+            <img src="/image/glamour_default.png" alt="">
+         </router-link>
          <div class="search" v-on:click="handlClick()">
             <p><i></i> MICHAEL KORS 低至三折</p>
          </div>
          <!-- <router-link to= "/search" tag="div" class="search" v-on:click="handleClick()"></router-link> -->
-         <router-link to= "/shoppingcart" tag="div" class="cart">cart</router-link>
+         <router-link to= "/shoppingcart" tag="div" class="cart">
+            <i class="iconfont icon-iconset0316"></i>
+         </router-link>
          </div>
         <ul>
             <router-link to= "/home" tag="li" activeClass="active">推荐</router-link>
@@ -25,7 +29,6 @@
     </nav>
 
      <div class="mask" ref="mask">
-       
                 <div class="input">
                    <input type="text" placeholder="INITIAL轻剪裁男装 低至2折" class="sousuo"> 
                    <span v-on:click ="backClick()">取消</span>
@@ -123,15 +126,22 @@ export default {
         box-sizing: border-box;
         width:100%;
         .login{
-            height: .24rem;
-            width: .4rem;
+            height: .3rem;
+            width: .3rem;
             font-size: .14rem;
             line-height: .24rem;
-            margin-left: .15rem;
-            margin-top: .05rem;
+            margin-left: .1rem;
+            margin-top: .02rem;
+            border-radius:50%;
+            overflow: hidden;
+            margin-right:.05rem;
+            img{
+                width:100%;
+                position:relative;
+                top:-0.05rem;
+            }
         }
         .cart{
-           
             height: .24rem;
             width: .4rem;
             font-size: .14rem;
@@ -139,6 +149,10 @@ export default {
             margin-right: .15rem;
             margin-top: .05rem;
             text-align:center;
+            i{
+                margin-left:.15rem;
+                font-size:.3rem;
+            }
         }
         .search{
             height: .34rem;

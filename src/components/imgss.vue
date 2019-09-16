@@ -6,7 +6,7 @@
 
       infinite-scroll-disabled="loading"
       infinite-scroll-immediate-check="false">
-            <div class="mainContent" v-for="data in datalist" :key="data.categoryId" @click="toDetail(data)">
+            <div class="mainContent" v-for="data in datalist" :key="data.categoryId" v-detail="data">
             <img :src="Image(data.imageUrl)" alt="">
             <div class="particulars">
             <p>{{data.englishName}}</p>
@@ -19,10 +19,10 @@
 </template>
 <script>
 import Vue from 'vue'
-import { InfiniteScroll } from 'mint-ui';
-
-Vue.use(InfiniteScroll);
 import axios from "axios"
+import { InfiniteScroll } from 'mint-ui';
+import '@/js/toDetail'
+Vue.use(InfiniteScroll);
 export default {
     data(){
         return{
@@ -60,11 +60,7 @@ export default {
                 this.loading=false
             })
             
-        },
-        toDetail (data) {
-            this.$router.push(`/detail/productlist?categoryId=${data.categoryId}&key=&sort=&timestamp=${Date.now()}`)
         }
-        
     },
     props:["UrlId"]
 }

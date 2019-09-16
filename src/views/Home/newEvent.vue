@@ -4,7 +4,7 @@
         <ul discountText v-for="(data,index) in newevent" :key="index" class="newEvent">
 
             <div class="taday">{{data.name}}</div>
-            <li v-for="event in data.events" :key="event.eventId" >
+            <li v-for="event in data.events" :key="event.eventId" v-detail="event">
                 <img :src="event.imageUrl" />
                 <div class="title ">
                     <p>{{event.englishName}}</p>
@@ -18,13 +18,14 @@
 </template>
 
 <script>
+import '@/js/toDetail'
 export default {
     props:["newevent"],
    data(){
        return{
           
        }
-   },
+   }
 }
 </script>
 

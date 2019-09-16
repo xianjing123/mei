@@ -57,7 +57,6 @@ export default {
     mounted(){
         axios("http://www.mei.com/appapi/home/mktBannerApp/v3?silo_id=2013000100000000004&platform_code=PLATEFORM_H5").then(res=>{
     this.datalist=res.data.banners 
-    console.log(res.data.banners[0].link_url.slice(-19))        
         })
     }
     
