@@ -25,9 +25,11 @@
             <p>购物袋是空的哦~</p>
             <div class="rush" @click="goShopping">去抢购</div>
         </div>
+        <!-- <z-check></z-check> -->
         <footer v-if="datalist.length">
             <div class="checkbox">
                 <label @change="checkBox"><input type="checkbox" v-model="isAllChecked">全选</label>
+                
             </div>
             <slot name="show">
                 <div class="total">总价：<span>￥{{total()}}</span></div>
@@ -53,7 +55,8 @@ export default {
         return {
             isAllChecked: false,
             checkgroup: [],
-            datalist: []
+            datalist: [],
+            checkbox: true
         }
     },
     mounted () {
