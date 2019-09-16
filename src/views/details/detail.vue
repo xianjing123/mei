@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="detail-total" :style={height:scrollHeight}>
-            <ul>
+            <ul v-if="products.length">
                 <li v-for="item in products" :key="item.productId" class="detail-product" @click="buyShop(item)">
                     <div class="product-img">
                         <img :src="item.imageUrl" alt="">
@@ -25,6 +25,7 @@
                     </div>
                 </li>
             </ul>
+            <p v-else class="no-data">暂无数据</p>
         </div>
         <router-link tag="div" to="/shoppingcart" class="detail-to-cart"><i class="iconfont icon-iconset0316"></i></router-link>
     </div>
@@ -123,6 +124,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    .no-data {
+        position:absolute;
+        left:50%;
+        top:.3rem;
+        transform:translateX(-50%)
+    }
     .detail-nav{
         height:.4rem;
         background:white;

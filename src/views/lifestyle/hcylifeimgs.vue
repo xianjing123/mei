@@ -16,14 +16,10 @@ export default {
         return{
             ID:"http://www.mei.com/appapi/silo/eventForH5?categoryId=lifestyle&pageIndex=1&timestamp=1568192244360&summary=6dfbcc20b6f658cafd744d7df24f426c&platform_code=H5",
             fun:obj.func3
-            
-            
         }
     },
     components:{
         imgss
-    },
-   
-    
+    }   
 }
 </script>
