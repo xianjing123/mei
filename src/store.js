@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    tabbarIsShow: true
+    tabbarIsShow: true,
+    imgHeight:200
   },
   mutations: {
     tabbarTrue (state, payload) {

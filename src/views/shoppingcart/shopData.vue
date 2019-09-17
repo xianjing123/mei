@@ -25,9 +25,11 @@
             <p>购物袋是空的哦~</p>
             <div class="rush" @click="goShopping">去抢购</div>
         </div>
+        <!-- <z-check></z-check> -->
         <footer v-if="datalist.length">
             <div class="checkbox">
                 <label @change="checkBox"><input type="checkbox" v-model="isAllChecked">全选</label>
+                
             </div>
             <slot name="show">
                 <div class="total">总价：<span>￥{{total()}}</span></div>
@@ -53,35 +55,8 @@ export default {
         return {
             isAllChecked: false,
             checkgroup: [],
-            datalist: [
-                // {
-                //     id:1,
-                    // name:'衣服',
-                    // color:'蓝色',
-                    // brand:'3DAVID NAMAN',
-                    // count:1,
-                    // price:399,
-                    // img:'https://cdn13.mei.com/product/DZG-209-00899/2ea86d89047e5ba2f142197e7461d22e.jpg@182w_242h_2e_65q'
-                // },
-                // {
-                //     id:2,
-                    // name:'裤子',
-                    // color:'蓝色',
-                    // brand:'3DAVID NAMAN',
-                    // count:1,
-                    // price:500,
-                    // img:'https://cdn14.mei.com/product/VY4-204-00129/273985c7918284ee3b66a67822adc38c.jpg@182w_242h_2e_65q'
-                // },
-                // {
-                //     id:3,
-                    // name:'衣服',
-                    // color:'白色',
-                    // brand:'3DAVID NAMAN',
-                    // count:1,
-                    // price:900,
-                    // img:'https://cdn13.mei.com/product/VY4-206-00106/VY4-206-00106a.jpg@182w_242h_2e_65q'
-                // }
-            ]
+            datalist: [],
+            checkbox: true
         }
     },
     mounted () {
@@ -204,6 +179,7 @@ export default {
     .shopping-null{
         background:white;
         margin-top:.1rem;
+        min-height:5.5rem;
         .shoppingbag{
             width:1rem;
             margin:0 auto;

@@ -6,7 +6,7 @@
 
       infinite-scroll-disabled="loading"
       infinite-scroll-immediate-check="false">
-            <div class="mainContent" v-for="data in datalist" :key="data.categoryId">
+            <div class="mainContent" v-for="data in datalist" :key="data.categoryId" v-detail="data">
             <img :src="Image(data.imageUrl)" alt="">
             <div class="particulars">
             <p>{{data.englishName}}</p>
@@ -19,10 +19,10 @@
 </template>
 <script>
 import Vue from 'vue'
-import { InfiniteScroll } from 'mint-ui';
-
-Vue.use(InfiniteScroll);
 import axios from "axios"
+import { InfiniteScroll } from 'mint-ui';
+import '@/js/toDetail'
+Vue.use(InfiniteScroll);
 export default {
     data(){
         return{
@@ -36,7 +36,6 @@ export default {
     
     mounted(){
          axios(this.UrlId.ID).then(res=>{
-            // console.log(res.data)
             this.datalist=res.data.eventList
             this.totalPages=res.data.totalPages
            
@@ -48,26 +47,20 @@ export default {
             return data + "?x-oss-process=image/resize,w_750/quality,q_50"
         },
         loadMore(){
-            // console.log("daodile")
             this.loading=true
             this.NumberOfRequests++
             this.totalPages--
-            // console.log(this.totalPages)
             if(this.totalPages<0){
                 return
             }
-                // this.$emit('fu',this.NumberOfRequests)  
             
             
             axios(this.UrlId.fun(this.NumberOfRequests)).then(res=>{
                 this.datalist=[...this.datalist,...res.data.eventList]
                 this.loading=false
             })
-            // console.log()
-
             
         }
-        
     },
     props:["UrlId"]
 }
@@ -75,7 +68,6 @@ export default {
 <style lang="scss" scoped>
     .main{
         width:100%;
-        // background-color:pink;
          
         .mainContent{
             width:3.45rem;

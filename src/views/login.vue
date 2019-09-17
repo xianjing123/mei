@@ -13,7 +13,7 @@
         </div>
       </div>
       <div class="submit">
-        <div class="default"><p></p></div>
+        <div class="default" @click="$router.back()"><p></p></div>
       </div><br>
       <div class="change">
          <router-link to="/loginone" class="mima">切换密码登录</router-link><br>

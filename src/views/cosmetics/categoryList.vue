@@ -1,9 +1,9 @@
 <template>
     <div>
         <ul>
-            <router-link tag="li" v-for="(data,index) in datalist" :key="index" to="/">
+            <li v-for="(data,index) in datalist" :key="index" @click="toDetail(data)">
             <img :src="data.categoryImgStr" alt="">
-            </router-link>
+            </li>
         </ul>
     </div>
 </template>
@@ -15,11 +15,15 @@ export default {
             datalist:[]
         }
     },
+    methods: {
+        toDetail (data) {
+            // this.$router.push({ name: 'detail', params: { Data: data, }})
+            this.$router.push(`/detail/id?categoryId=${data.categoryOneId}&siloId=${data.siloId}&thirdCategories=${data.categoryOneName}&key=&sort=&timestamp=${Date.now()}`)
+        }
+    },
     mounted(){
         axios("http://www.mei.com/appapi/cms/cmsDetail/v3?silo=2013000100000000003&ids=2042000100000000431&timestamp=1568099073929&summary=706e7a023dfaa98a346b72bf6b5b4974&platform_code=H5").then(res=>{
-            // console.log(res.data.resultList[0].data)
             this.datalist=res.data.resultList[0].data
-            // console.log(res.data.resultList[0].data[0].categoryOneId)
         })
     }
 }

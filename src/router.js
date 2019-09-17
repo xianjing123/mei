@@ -7,11 +7,15 @@ import kids from './views/kids'
 import man from './views/man'
 import upcoming from './views/upcoming'
 import lifestyle from './views/lifestyle'
-import women from './views/women'
+import woman from './views/woman'
 import shoppingcart from './views/shoppingcart'
 import Edit from './views/shoppingcart/edit'
 import login from './views/login'
 import loginone from './views/loginone'
+import Detail from './views/details/detail'
+import bannerdetail from './views/details/bannerdetail'
+
+
 Vue.use(Router)
 
 
@@ -74,8 +78,26 @@ const router =new Router({
 
   },
   {
-    path:'/women',
-    component: women
+    path:'/woman',
+    component: woman
+  },
+  {
+    path:'/detail/:id',
+    name:'detail',
+    component: Detail
+  },
+  {
+    path:'/bannerdetail/:id',
+    component:bannerdetail
+  },
+  {
+    path:'/detail/:id',
+    name:'detail',
+    component: Detail
+  },
+  {
+    path:'/bannerdetail/:id',
+    component:bannerdetail
   },
   {
     path:'/loginone',
@@ -89,6 +111,7 @@ const router =new Router({
     path:'*',
     redirect:'/home'
   }
+ 
 
 
   ]

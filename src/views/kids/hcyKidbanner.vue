@@ -6,7 +6,7 @@
     freeMode:false,
     pagination:true,
     slideperview:1}" v-if="datalist.length">
-        <div class="swiper-slide ban1" v-for="data in datalist" :key="data.id">
+        <div class="swiper-slide ban1" v-for="data in datalist" :key="data.id"  @click="sendlink(data)">
             
             <img :src="data.main_image"/>
              <div class="title" >
@@ -18,47 +18,35 @@
         </div>
     </swiper>
     </div>
-    
-   
-
- 
     </div>
-   
 </template>
-
-
 <script>
 
 import swiper from '@/components/Swiper'
 import axios from "axios"
 
 export default {
-    
     data(){
         return{
-            
             datalist:[],
-           
-           
-            
+        }
+    },
+    methods:{
+        sendlink(data){
+            this.$router.push(`/bannerdetail/${data.link_url.slice(-19)}`)
         }
     },
 
     components:{
         swiper,
-       
     },
     mounted(){
         axios("http://www.mei.com/appapi/home/mktBannerApp/v3?silo_id=2013000100000000005&platform_code=PLATEFORM_H5").then(res=>{
-    // console.log(res.data.banners)   
     this.datalist=res.data.banners         
         })
     }
-    
 }
 </script>
-
-
 <style lang="scss" scoped>
     .banner{
         width:100%;

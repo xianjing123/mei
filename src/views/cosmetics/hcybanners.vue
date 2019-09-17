@@ -22,16 +22,13 @@ export default {
     },
     methods:{
         bannerClick(date){
-            // console.log(date)
         }
     },
     mounted(){
-        console.log('aaa')
         axios({
             url:"http://www.mei.com/appapi/home/mktBannerApp/v3?silo_id=2013000100000000003&platform_code=PLATEFORM_H5"
         }).then(res=>{
             var bannersObj=res.data.banners[0]
-            // console.log(res.data.banners[0])
             this.banners=bannersObj
         })
     }
@@ -72,3 +69,4 @@ export default {
         }
     
 </style>
+

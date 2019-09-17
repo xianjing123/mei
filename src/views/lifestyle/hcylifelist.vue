@@ -22,7 +22,6 @@ export default {
     },
     mounted(){
         axios(`http://www.mei.com/appapi/cms/cmsDetail/v3?silo=2013000100000000004&ids=2121000100000000291&timestamp=${Date.now()}&summary=0eb2b86d089e03615a27ecc251a2741b&platform_code=H5`).then(res=>{
-            console.log(res.data.resultList[0].data[0].imageJson)
             this.datalist=JSON.parse(res.data.resultList[0].data[0].imageJson)
             this.imgurl=res.data.resultList[0].data[0].imageUrl
             // this.datalist=res.data
