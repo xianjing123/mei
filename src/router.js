@@ -11,7 +11,7 @@ import women from './views/women'
 import shoppingcart from './views/shoppingcart'
 import Edit from './views/shoppingcart/edit'
 import login from './views/login'
-
+import loginone from './views/loginone'
 Vue.use(Router)
 
 
@@ -78,6 +78,10 @@ const router =new Router({
     component: women
   },
   {
+    path:'/loginone',
+    component: loginone
+  },
+  {
     path:'/',
     redirect:'/home'
   },
@@ -85,6 +89,7 @@ const router =new Router({
     path:'*',
     redirect:'/home'
   }
+
 
   ]
 })
